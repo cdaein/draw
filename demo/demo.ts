@@ -9,19 +9,26 @@ import {
 
 import { createCanvas } from "@daeinc/canvas";
 
-const canvas = createCanvas({
+const {
+  canvas,
+  context: ctx,
+  width,
+  height,
+} = createCanvas({
   width: 600,
   height: 600,
   pixelRatio: window.devicePixelRatio,
-});
-const ctx = canvas.getContext("2d")!;
-
-const { width, height } = canvas;
+}) as {
+  canvas: HTMLCanvasElement;
+  context: CanvasRenderingContext2D;
+  width: number;
+  height: number;
+};
 
 drawRect(ctx, [0, 0], [width, height]);
 ctx.fillStyle = `gray`;
 ctx.fill();
 
-drawCircle(ctx, [width / 2, height / 2], width);
+drawCircle(ctx, [width / 2, height / 2], width / 2);
 ctx.fillStyle = `white`;
 ctx.fill();
