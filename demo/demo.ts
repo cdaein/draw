@@ -4,6 +4,7 @@ import {
   drawLine,
   drawPath,
   drawRect,
+  drawRoundRect,
   drawSmoothPath,
 } from "../index";
 
@@ -32,3 +33,13 @@ ctx.fill();
 drawCircle(ctx, [width / 2, height / 2], width / 2);
 ctx.fillStyle = `white`;
 ctx.fill();
+
+drawRoundRect(
+  ctx,
+  [width / 2, height / 2],
+  [width / 2, height / 2],
+  width / 4,
+  "center",
+);
+ctx.strokeStyle = `black`;
+ctx.stroke();
