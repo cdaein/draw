@@ -80,6 +80,36 @@ export const drawRect = (
 };
 
 /**
+ * Draw a rectangle with rounded corner(s).
+ *
+ * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/roundRect)
+ *
+ * @param pt - `[x, y]`
+ * @param size - `[width, height]`
+ * @param radii - Corner radius/radii. Can be a single value or multiple values.
+ * @param mode - Draw from top-left `corner` or `center`. Default is `corner`
+ */
+export const drawRoundRect = (
+  ctx: CanvasRenderingContext2D,
+  pt: Pt,
+  size: Pt,
+  radii?: number | DOMPointInit | Iterable<number | DOMPointInit> | null,
+  mode: "corner" | "center" = "corner",
+) => {
+  ctx.beginPath();
+  if (mode === "corner")
+    ctx.roundRect(pt[0], pt[1], size[0], size[1], radii || 0);
+  else if (mode === "center")
+    ctx.roundRect(
+      pt[0] - size[0] / 2,
+      pt[1] - size[1] / 2,
+      size[0],
+      size[1],
+      radii || 0,
+    );
+};
+
+/**
  * Use quadratic curve to smoothen hard edges of path. use with `geom.generateSmoothPath()`
  * @param ctx -
  * @param path - Array of `[x, y]` points
