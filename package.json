@@ -1,6 +1,6 @@
 {
   "name": "@daeinc/draw",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "drawing utilities for HTML5 Canvas",
   "types": "./dist/index.d.ts",
   "main": "./dist/index.js",
