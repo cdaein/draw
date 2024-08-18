@@ -1,19 +1,25 @@
 import { defineConfig } from "tsup";
+import packageJson from "./package.json";
+
+const banner = `/*! ${packageJson.name}@${packageJson.version} by ${packageJson.author} - ${packageJson.license} */`;
 
 export default defineConfig([
   // npm module (no bundling)
   {
-    entry: ["./index.ts"],
+    entry: ["./src/index.ts"],
     format: "esm",
     target: "esnext",
     dts: true,
     clean: true,
     treeshake: true,
+    banner: {
+      js: banner,
+    },
   },
   // es6 module (bundled)
   {
     entry: {
-      draw: "./index.ts",
+      draw: "./src/index.ts",
     },
     format: ["esm"],
     outDir: "dist",
@@ -30,6 +36,9 @@ export default defineConfig([
       return {
         js: ".esm.js",
       };
+    },
+    banner: {
+      js: banner,
     },
     // noExternal: [/./],
   },
