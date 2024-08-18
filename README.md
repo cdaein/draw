@@ -14,6 +14,12 @@ then,
 import { ... } from "@daeinc/draw"
 ```
 
+## CDN
+
+```js
+import { ... } from "https://cdn.jsdelivr.net/npm/@daeinc/draw/dist/draw.esm.js"
+```
+
 ## Functions
 
 It uses two custom types, `Pt` and `Pts`, each representing `number[]` and `Pt[]`.
@@ -34,7 +40,7 @@ const drawCircle: (ctx: CanvasRenderingContext2D, pt: Pt, diam: number) => void;
 const drawFillText: (
   ctx: CanvasRenderingContext2D,
   msg: string,
-  pt: Pt
+  pt: Pt,
 ) => void;
 ```
 
@@ -50,7 +56,7 @@ const drawLine: (ctx: CanvasRenderingContext2D, pt1: Pt, pt2: Pt) => void;
 const drawPath: (
   ctx: CanvasRenderingContext2D,
   path: Pts,
-  close?: boolean
+  close?: boolean,
 ) => void;
 ```
 
